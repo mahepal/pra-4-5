@@ -1,38 +1,21 @@
 #include<iostream>
-#include<string.h>
 using namespace std;
 
-class String
+void pointer_cons(int i)
 {
-	private:
-		char *str;
-	public:
-		String()
-		{
-			str=NULL;
-		}
-		String(char *s)
-		{
-			str=new char[strlen(s)+1];
-			strcpy(str,s);
-		}
-		void  show()
-		{
-			cout<<str<<endl;
-		}
-		~String()
-		{
-			delete str;
-		}
-};
+	const int* p=&i;
+	cout<<(*p)<<endl;
+}
+void cons_pointer(int i)
+{
+	int* const p=&i;
+	cout<<(*p)<<endl;
+}
 int main()
 {
+	int i=7;
+	pointer_cons(i);
 
-	String s1();
-	//s1.show();
-	String s2("ddu");
-	s2.show();
-	
-
-
+	cons_pointer(i);
+	cout<<endl;
 }
